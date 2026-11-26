@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><script src="../arcade/access.js" data-day="20"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101e29"><title>Seven Metres · ensō Arcade</title><link rel="stylesheet" href="style.css"><script defer src="../arcade/calendar.js"></script><script defer src="movement.js"></script><script defer src="arena.js"></script><script defer src="game.js"></script></head>
+<body><arcade-nav game="seven-metres"><a href="../index.html">Game calendar</a></arcade-nav>
+<main><header><div><small>20 December &nbsp;/&nbsp; Women’s Handball EURO final</small><h1>Seven Metres<i>.</i></h1></div><p>Katowice, Poland<br><b>One throw to force extra time.</b></p></header>
+<section class="broadcast"><div class="screen"><canvas id="arena" aria-label="Handball court. Tap or drag on the goal to aim your throw."></canvas><div class="score"><strong>60:00</strong><b id="score">26 – 27</b></div><button id="cam" title="Change camera">Shooter view ↻</button></div>
+<div class="desk"><div><small id="mode">Final throw</small><h2 id="title">Take the shot.</h2><p id="call" role="status">Pick a spot in the goal. Show the keeper a feint, then switch lanes and shoot.</p></div>
+<div class="pad"><div class="moves"><button id="left" aria-label="Aim left">← Left</button><button id="height">Aim low</button><button id="right" aria-label="Aim right">Right →</button></div><button id="feint">Pump fake · F</button><button id="action">Shoot · Space</button><button id="review" hidden>Watch replay · ¼ speed</button></div></div>
+<div id="film" hidden><label for="scrub">Replay</label><input type="range" id="scrub" min="0" max="1000" value="0"><output id="stamp"></output></div></section>
+<footer><span><b>Aim</b> Tap the goal or use WASD or arrow keys</span><span><b>Feint</b> F</span><span><b>Shoot</b> Space</span><span id="balance"></span></footer></main></body></html>

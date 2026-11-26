@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="../arcade/access.js" data-day="14"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#213d37">
+<title>Vottelotto · ensō Arcade</title>
+<link rel="stylesheet" href="style.css"><script defer src="../arcade/calendar.js"></script><script defer src="wool.js"></script><script defer src="game.js"></script>
+</head>
+<body><arcade-nav game="vottelotto"><a href="../index.html">Game calendar</a></arcade-nav>
+<main>
+<header><div><p class="kicker">14 December <span>✦</span> Ferry lost property</p><h1>Vottelotto<span>.</span></h1><p>The last ferry is in. Fourteen mittens need a hand home.</p></div></header>
+<div class="worktop">
+<section class="basket" aria-labelledby="basket-label"><div class="section-head"><h2 id="basket-label">The mitten drawer</h2><span id="remaining"></span></div>
+<p class="guide">Pick two to compare under the lamp.</p>
+<div id="drawer"></div></section>
+<section class="inspection" aria-labelledby="inspect-label"><div class="section-head"><h2 id="inspect-label">Under the lamp</h2><span id="progress">0 / 7 returned</span></div>
+<div id="slots"></div><section id="ledger" hidden><h3>Collection ledger</h3><p id="tally"></p><ul id="signatures"></ul></section><div class="counter"><p id="message" role="status">Look for the golden pair with the big cream stars.</p><button id="return" type="button" disabled>Return this pair</button></div></section>
+</div>
+<details><summary>How to play</summary><p>Tap or drag two mittens under the lamp. Flip them to check the palms, or open a cuff to see inside. A pair needs a left and a right from the same owner. Return the pair with the button, or drag an inspected mitten onto it. Each pair earns a first-try point if neither mitten has been offered in a wrong pairing. Take as long as you like.</p></details>
+</main></body></html>

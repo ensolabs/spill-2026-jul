@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="../arcade/access.js" data-day="13"></script><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5ead2">
+  <title>Lykkeluka · ensō Arcade</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../arcade/calendar.js"></script>
+  <script defer src="drum.js"></script>
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <arcade-nav game="lykkeluka"><a href="../index.html">Game calendar</a></arcade-nav>
+  <main>
+    <header>
+      <div><p class="label">13 December <span>✦</span> Winter market raffle</p><h1>Lykkeluka<span>.</span></h1></div>
+      <p class="intro">One drum. Thirteen balls. How many stars can you bank across three tickets?</p>
+    </header>
+    <div class="kiosk">
+      <section class="scene" aria-label="Raffle drum">
+        <canvas aria-hidden="true" id="drum"></canvas>
+        <div class="odds"><span>Chance of drawing 13</span><strong id="risk">1 in 13</strong></div>
+      </section>
+      <section class="ticket" aria-label="Your raffle ticket">
+        <div class="stub"><strong id="serial">Ticket 1 of 3</strong><span id="banked">0 ★ banked</span></div>
+        <div class="slip">
+          <p class="label" id="pot-label">Stars on this ticket</p>
+          <div class="amount" aria-labelledby="pot-label"><span id="pot">0</span><span class="star" aria-hidden="true">★</span></div>
+          <div id="history" aria-label="Balls drawn this ticket"></div>
+          <p id="message" role="status">The drum is full. Give it a turn.</p>
+          <div class="actions">
+            <button id="draw" type="button">Turn the crank</button>
+            <button id="bank" type="button" disabled>Bank stars</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <section class="rules" aria-label="Raffle rules">
+      <p><b>1–12</b><span>Each ball adds its number in stars. It stays out until the next ticket.</span></p>
+      <p><b>13</b><span>Draw the red thirteen and lose the stars on your open ticket. Banked stars are safe.</span></p>
+      <p><b>✦</b><span>Make exactly 13 with safe balls and your ticket automatically banks double.</span></p>
+    </section>
+    <noscript>Enable JavaScript to turn the raffle drum.</noscript>
+  </main>
+</body>
+</html>

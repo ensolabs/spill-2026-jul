@@ -1,0 +1,22 @@
+:root{--ink:#163d42;--rust:#a53323;--cream:#fff1d2;--border:#a49b82}
+*{box-sizing:border-box}body{margin:0;background:#f4ebd6;color:var(--ink);font:16px/1.45 "DM Sans",system-ui,sans-serif}
+main{width:min(1160px,92%);margin:0 auto 36px}header{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;padding:24px 0 22px}
+.label,.stub,.odds,.actions button{font:700 11px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.085em;text-transform:uppercase}
+.label{margin:0}.label span{color:var(--rust);margin:0 7px}h1,.amount{font-family:"DM Serif Text",Georgia,serif}
+h1{font-size:clamp(56px,7.25vw,94px);line-height:.9;letter-spacing:-.074em;margin:7px 0 0}h1 span,.star{color:var(--rust)}
+.intro{max-width:32ch;margin:0 0 2px;font-size:clamp(15px,1.5vw,19px);line-height:1.35}
+.kiosk{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(285px,1fr);border:1px solid var(--ink);background:#e7ddc5;box-shadow:0 5px 0 #cfc4ac}
+.scene{position:relative;min-height:365px;background:#2c5358;overflow:hidden}.scene canvas{position:absolute;width:100%;height:100%;display:block}
+.odds{position:absolute;bottom:12px;left:14px;display:flex;gap:12px;align-items:center;color:#fff0ca;background:#173d42;border:1px solid #e7c78699;padding:6px 10px;font-size:9px}.odds strong{font-size:13px;letter-spacing:0}
+.ticket{position:relative;background-color:#fcf1d7;background-image:repeating-linear-gradient(0deg,transparent 0 3px,#ac815806 3px 4px);border-left:2px dashed #9a8a70;display:flex;flex-direction:column}
+.stub{background:var(--rust);color:#fff4da;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px double #f4dda6}.stub span{font-size:10px}
+.slip{padding:20px clamp(16px,2vw,28px);flex:1;display:flex;flex-direction:column}.amount{font-size:clamp(60px,6.3vw,87px);letter-spacing:-.06em;line-height:1.05;font-weight:bold;font-variant-numeric:tabular-nums}.star{font:32px Georgia;vertical-align:super;margin-left:7px}
+#message{margin:12px 0 17px;min-height:2.8em;color:#344540;font-size:15px}
+#history{display:flex;gap:4px;flex-wrap:wrap;min-height:24px;padding-top:4px}
+.ball{display:grid;place-items:center;width:23px;height:23px;border-radius:50%;border:1px solid #9d9476;background:#e6ddbd;font:700 12px/1 ui-monospace,monospace}.ball:last-child{background:var(--ink);color:#fff4d6}.ball.bad:last-child{background:var(--rust)}
+.actions{margin-top:auto;display:grid;grid-template-columns:1.3fr 1fr;gap:7px}.actions button{min-height:45px;padding:8px 5px;cursor:pointer;font-size:12px;letter-spacing:.025em;border:1px solid var(--ink);color:var(--ink);background:transparent;text-transform:none}
+#draw{background:var(--ink);color:var(--cream)}#draw:enabled:hover{background:#265b5f}#bank:enabled:hover{background:#e9d9b3}.actions button:disabled{opacity:.58;cursor:default}
+.actions button:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:22px 0 0}.rules p{border-top:1px solid var(--border);margin:0;padding-top:10px;display:flex;gap:12px;align-items:baseline;font-size:13px}.rules b{font:700 22px Georgia;color:var(--rust);white-space:nowrap}.rules span{max-width:40ch}
+@media(max-width:720px){main{width:94%}header{align-items:flex-start;flex-direction:column;gap:10px;padding:16px 0}.intro{max-width:50ch}.kiosk{grid-template-columns:1fr}.scene{min-height:0;aspect-ratio:1.8}.ticket{border-left:0;border-top:2px dashed #a69273}.stub{padding:8px 16px}.slip{padding:12px 16px}.amount{font-size:48px}.star{font-size:23px}.rules{gap:8px;grid-template-columns:1fr;margin-top:14px}.rules p{gap:10px;padding-top:7px}.rules b{min-width:48px}.odds{bottom:5px;left:5px;font-size:8px;padding:2px 7px;gap:6px}#history:empty{min-height:0}#message{margin:8px 0;min-height:0}}
+#draw[aria-disabled=true]{cursor:wait;background:#506967}

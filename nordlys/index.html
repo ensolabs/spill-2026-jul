@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="../arcade/access.js" data-day="4"></script><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08131a">
+  <title>Nordlys Dispatch · ensō Arcade</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="vendor/three.min.js"></script>
+  <script defer src="scene.js"></script>
+  <script defer src="flight.js"></script>
+  <script defer src="dispatch.js"></script>
+<script defer src="../arcade/calendar.js"></script></head>
+<body>
+  <arcade-nav game="nordlys"><a href="../index.html">Game calendar</a></arcade-nav>
+  <main>
+    <div class="mast">
+      <div>
+        <div class="eyebrow"><span class="flash" aria-hidden="true"></span> WINTER ARCADE SERIES <em>/</em> 04 DECEMBER</div>
+        <h1>Nordlys <span>Dispatch</span></h1>
+      </div>
+      <div class="switch-row"><button id="pause" class="sound" type="button" disabled>Pause</button>
+      <button id="sound" class="sound" type="button" aria-pressed="false">Sound off</button></div>
+    </div>
+    <section class="console" aria-label="Search and rescue flight simulator">
+      <div class="viewport">
+        <canvas id="scene" aria-label="Helicopter overlooking an Arctic fjord, a stricken vessel and a shore rescue base"></canvas>
+        <div class="vignette"></div>
+        <div class="hud-top">
+          <div class="feed"><span class="live"></span><span id="phase">Standby</span></div>
+          <div class="countdown"><span>Mission clock</span><strong id="time">03:00</strong></div>
+        </div>
+        <aside class="scope"><span>HDG <b id="heading">000°</b> · <b id="view-mode">Chase</b></span><canvas id="radar" width="140" height="140" aria-label="Navigation scope showing helicopter, vessel and shore base"></canvas></aside>
+        <section id="briefing" aria-labelledby="mission-title">
+          <div class="brief-copy">
+            <div class="callsign">SAR <em>/</em> NIGHT FLIGHT</div>
+            <h2 id="mission-title">Fjord rescue</h2>
+            <p id="mission-copy">A vessel has lost power in the fjord. Hoist the survivor from its deck and bring them to the rescue team on the eastern shore.</p>
+            <button id="start" class="primary" type="button">Launch mission <span aria-hidden="true">↗</span></button>
+            <small id="record"></small>
+          </div>
+        </section>
+      </div>
+      <div class="instruments" aria-label="Flight telemetry">
+        <div><span>Altitude</span><strong id="alt">18 m</strong></div>
+        <div><span>Target range</span><strong id="range">99 m</strong></div>
+        <div><span>Hoist</span><strong id="winch">Stowed</strong></div>
+        <div><span>Hover assist</span><strong id="hover">Standby</strong></div>
+        <div><span>Pickup</span><strong id="quality">—</strong></div>
+      </div>
+      <div class="radio"><b><i></i> Dispatch</b><p id="guidance" role="status">Standing by for launch.</p></div>
+    </section>
+    <section class="inputs" aria-label="Flight controls">
+      <h2>Flight controls</h2>
+      <div class="keyboard">
+        <span><kbd>W</kbd><kbd>S</kbd> Forward / back</span>
+        <span><kbd>A</kbd><kbd>D</kbd> Strafe</span>
+        <span><kbd>↑</kbd><kbd>↓</kbd> or Shift + W/S · Altitude</span>
+        <span><kbd>←</kbd><kbd>→</kbd> or Shift + A/D · Turn</span>
+        <span><kbd>C</kbd> Camera</span>
+        <span><kbd>E</kbd> Winch</span>
+        <span><kbd>H</kbd> Hover</span>
+        <span><kbd>L</kbd> Light</span>
+      </div>
+      <div class="touch">
+        <div class="pad" aria-label="Horizontal movement">
+          <button data-code="KeyW" class="north" aria-label="Fly forward">↑</button>
+          <button data-code="KeyA" class="west" aria-label="Strafe left">←</button>
+          <button data-code="KeyS" class="south" aria-label="Fly backward">↓</button>
+          <button data-code="KeyD" class="east" aria-label="Strafe right">→</button>
+        </div>
+        <div class="switches">
+          <button data-code="ArrowUp">Climb</button><button data-code="ArrowDown">Descend</button>
+          <button data-code="KeyE">Winch</button><button data-code="KeyH">Hover</button>
+          <button data-code="KeyL">Light</button>
+          <button data-code="ArrowLeft">Turn left</button><button data-code="ArrowRight">Turn right</button>
+          <button data-code="KeyC">Camera</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><span>ENSŌ ARCADE &nbsp; / &nbsp; WINTER COLLECTION</span><a href="../index.html">← Game calendar</a></footer>
+</body>
+</html>
