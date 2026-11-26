@@ -1,0 +1,48 @@
+name: Publish arcade to GitHub Pages
+
+on:
+  release:
+    types: [published]
+
+permissions: {}
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Collect the calendar and games
+        run: |
+          site="$RUNNER_TEMP/arcade-site"
+          mkdir "$site"
+          cp -R index.html CNAME arcade "$site"/
+          for entry in */index.html; do
+            cp -R "$(dirname "$entry")" "$site"/
+          done
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/arcade-site
+
+  deploy:
+    needs: package
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy released arcade
+        id: deployment
+        uses: actions/deploy-pages@v4
