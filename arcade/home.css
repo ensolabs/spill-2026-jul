@@ -3,6 +3,7 @@
 
 /* Knitted paper, crossed satin ribbon and a stepped pixel bow. */
 .closed {
+  --cross:79%;
   --paper:#25484b;
   --ribbon:#ee9990;
   --glint:#ffdabe;
@@ -14,25 +15,40 @@
 .closed .card {
   position:relative;
   isolation:isolate;
+  container-type:inline-size;
   overflow:hidden;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-end;
   align-items:flex-start;
   min-height:154px;
-  padding:18px 25% 18px 16px;
+  padding:66px 12px 16px;
   border-color:var(--selvedge);
   background:
-    linear-gradient(90deg,transparent 79%,var(--selvedge) 79% calc(79% + 2px),var(--ribbon) calc(79% + 2px) calc(79% + 7px),var(--glint) calc(79% + 7px) calc(79% + 9px),var(--ribbon) calc(79% + 9px) calc(79% + 16px),var(--selvedge) calc(79% + 16px) calc(79% + 18px),transparent calc(79% + 18px)),
+    linear-gradient(90deg,transparent var(--cross),var(--selvedge) var(--cross) calc(var(--cross) + 2px),var(--ribbon) calc(var(--cross) + 2px) calc(var(--cross) + 7px),var(--glint) calc(var(--cross) + 7px) calc(var(--cross) + 9px),var(--ribbon) calc(var(--cross) + 9px) calc(var(--cross) + 16px),var(--selvedge) calc(var(--cross) + 16px) calc(var(--cross) + 18px),transparent calc(var(--cross) + 18px)),
     linear-gradient(transparent 33px,var(--selvedge) 33px 35px,var(--ribbon) 35px 39px,var(--glint) 39px 41px,var(--ribbon) 41px 46px,var(--selvedge) 46px 48px,transparent 48px),
     url('wrapping.png') repeat 0 0 / 96px 96px,var(--paper);
   image-rendering:pixelated;
 }
 .closed .card::after {
-  content:"";position:absolute;top:21px;left:calc(79% - 15px);width:48px;height:39px;
+  content:"";position:absolute;top:21px;left:calc(var(--cross) - 15px);width:48px;height:39px;
   background:linear-gradient(135deg,var(--glint),var(--ribbon) 50%,var(--selvedge));
   clip-path:polygon(0 5%,28% 5%,28% 14%,40% 14%,40% 30%,59% 30%,59% 14%,72% 14%,72% 5%,100% 5%,100% 44%,90% 44%,90% 53%,67% 53%,80% 81%,80% 97%,61% 84%,50% 58%,38% 86%,18% 97%,18% 83%,33% 53%,9% 53%,9% 44%,0 44%,0 5%,9% 17%,9% 34%,29% 34%,29% 25%,19% 25%,19% 17%,9% 17%,0 5%);
 }
-.closed time,.closed h2 {color:#302c37;background:#f8e9cf;box-shadow:3px 3px 0 #17152488}
+.closed time,.closed h2 {position:relative;z-index:1;color:#302c37;background:#f8e9cf;box-shadow:3px 3px 0 #17152488}
 .closed time {font:750 11px/1.4 ui-monospace,monospace;letter-spacing:.09em;padding:4px 9px 0}
-.closed h2 {margin:0;padding:4px 10px 8px;font:750 clamp(20px,2.2vw,30px)/1.12 system-ui;letter-spacing:-.045em;max-width:100%;overflow-wrap:anywhere}
+.closed h2 {margin:0;padding:4px 10px 8px;font:750 clamp(16px,9cqi,30px)/1.12 system-ui;letter-spacing:-.045em;max-width:100%;overflow-wrap:anywhere}
+
+/* Alternate wrapping techniques independently of the four paper colours. */
+.closed:nth-child(3n+2) { --cross:16% }
+.closed:nth-child(3n+2) .card::after {
+  transform:rotate(-10deg) scale(1.13,.8);
+}
+.closed:nth-child(3n) .card {
+  background:
+    linear-gradient(45deg,transparent 0 calc(100% - 52px),var(--selvedge) 0 calc(100% - 50px),var(--ribbon) 0 calc(100% - 44px),var(--glint) 0 calc(100% - 41px),var(--ribbon) 0 calc(100% - 35px),var(--selvedge) 0 calc(100% - 33px),transparent 0),
+    url('wrapping.png') repeat 0 0 / 96px 96px,var(--paper);
+}
+.closed:nth-child(3n) .card::after {
+  left:auto;right:12px;top:11px;transform:rotate(35deg) scale(.8);
+}
